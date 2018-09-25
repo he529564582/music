@@ -71,9 +71,8 @@ var audioObject = new Audio('http://cloud.hunger-valley.com/music/玫瑰.mp3')
         })
 #### 3. timeupdate
 当currentTime更新时会触发timeupdate事件,这个事件的触发频率由系统决定，但是会保证每秒触发4-66次（前提是每次事件处理不会超过250ms.
-
-
 //如下代码设置 每1秒左右执行一次
+
         audioObject.shouldUpdate = true
         audioObject.ontimeupdate = function(){
         var _this = this
@@ -86,6 +85,7 @@ var audioObject = new Audio('http://cloud.hunger-valley.com/music/玫瑰.mp3')
             }, 1000)
         }
         }
+        
 #### 4. volumechange
 当音量改变时触发
 
