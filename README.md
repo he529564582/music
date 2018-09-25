@@ -4,13 +4,13 @@
 
 方法1:
 
-        <audio id="music" src="http://cloud.hunger-valley.com/music/玫瑰.mp3">你的浏览器不支持喔！</audio>
+        <audio id="music" src="http://music.163.com/song/media/outer/url?id=476592630.mp3">你的浏览器不支持喔！</audio>
         <script>
         var audioObject = document.querySelector('#music')
         </script>
 方法2
 
-var audioObject = new Audio('http://cloud.hunger-valley.com/music/玫瑰.mp3')
+var audioObject = new Audio('http://music.163.com/song/media/outer/url?id=476592630.mp3')
 #### 2. audioObject.play()
 开始播放
 
@@ -85,7 +85,7 @@ var audioObject = new Audio('http://cloud.hunger-valley.com/music/玫瑰.mp3')
             }, 1000)
         }
         }
-        
+
 #### 4. volumechange
 当音量改变时触发
 
