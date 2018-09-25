@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- <script src="/music.json"></script> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
         .musicbox {
@@ -14,7 +13,7 @@
             font-size: 16px;
             color: aqua;
             border: 1px solid #a8d8ea;
-            width:350px;
+            width:300px;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -23,6 +22,7 @@
             padding: 20px 20px 20px 10px;
             box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
             -webkit-font-smoothing: antialiased;
+            border-radius: 4px;
         }
         .music .control {
             margin-top: 5px;
@@ -103,7 +103,6 @@
     
 </body>
 <script>
-
     function $(selector){
         return document.querySelector(selector)
     }
@@ -111,11 +110,19 @@
     var currentIndex = 0 //音乐列表下标为0（第一首歌）
     var audio = new Audio()
     audio.autoplay = true //设置为自动播放
+    //加载music
+    function loadMusic(musicObj){
+        console.log('begin play',musicObj)
+        $('.musicbox .title').innerText = musicObj.title //同步title
+        $('.musicbox .auther').innerText = musicObj.auther //同步auther
+        // $('.cover').style.backgroundImage = 'url(' + musicObj.img + ')'
+        audio.src = musicObj.src
+    }
     //获取音乐列表
     getMusicList(function(list){
         console.log(list)
         musicList = list
-        loadMusic (list[currentIndex])
+        loadMusic(list[currentIndex])
     })
     //currentTime更新时会触发timeupdate事件,这个事件的触发频率由系统决定
     audio.ontimeupdate = function(){
@@ -159,7 +166,7 @@
          console.log(currentIndex)
          loadMusic(musicList[currentIndex])
      }
-    //拖动进度条
+    //拖动进度条百分比
     $('.musicbox .bar').onclick = function(e){
         console.log(e)
         var percent = e.offsetX / parseInt(getComputedStyle(this).width)
@@ -189,14 +196,6 @@
         }
         xhr.send()
         // console.log(window.musicList)
-    }
-    //加载music
-    function loadMusic(musicObj){
-        console.log('begin play',musicObj)
-        $('.musicbox .title').innerText = musicObj.title //同步title
-        $('.musicbox .auther').innerText = musicObj.auther //同步auther
-        // $('.cover').style.backgroundImage = 'url(' + musicObj.img + ')'
-        audio.src = musicObj.src
     }
 </script>
 </html>
