@@ -1,5 +1,5 @@
-##API属性
-####1. audioObject
+## API属性
+#### 1. audioObject
 创建或者获取的audio对象，可通过以下两种方式得到
 
 方法1:
@@ -11,65 +11,65 @@
 方法2
 
 var audioObject = new Audio('http://cloud.hunger-valley.com/music/玫瑰.mp3')
-####2. audioObject.play()
+#### 2. audioObject.play()
 开始播放
 
-####3. audioObject.pause()
+#### 3. audioObject.pause()
 暂停播放
 
-###4. audioObject.autoPlay
+#### 4. audioObject.autoPlay
 设置或者获取自动播放状态
 
         audioObject.autoPlay = true  //设置为自动播放，下次更换 audioObject.src 后会自动播放音乐
         audioObject.autoPlay = false //设置不自动播放
         console.log(audioObject.autoPlay)
-####5.audioObject.src
+#### 5.audioObject.src
 设置或者获取音乐地址
 
         audioObject.src = "http://cloud.hunger-valley.com/music/ifyou.mp3"
         console.log(audioObject.src)
-####6. audioObject.volume
+#### 6. audioObject.volume
 设置或者获取音量，最大值为1，0为静音
 
         audioObject.volume = 0.5
         audioObject.volume = 1
         console.log(audioObject.volume)
-####7. audioObject.loop
+#### 7. audioObject.loop
 设置或者获取循环状态
 
         audioObject.loop = true
         console.log(audioObject.loop)
-####8. audioObject.duration
+#### 8. audioObject.duration
 获取音乐长度，单位为秒
 
         console.log(audioObject.duration)
-####9. audioObject.currentTime
+#### 9. audioObject.currentTime
 设置或者获取播放时间
 
         console.log(audioObject.currentTime)
-####10. audioObject.ended
+#### 10. audioObject.ended
 判断音乐是否播放完毕，只读属性
 
-##事件
-####1. playing
+## 事件
+#### 1. playing
 当音乐开始播放，暂停后重新开始播放，设置currentTime后开始播放时触发
 
         audioObject.addEventListener('playing', function(){
         console.log('playing')
         })
-####2. pause
+#### 2. pause
 当音乐暂停时和结束时触发
 
         audioObject.addEventListener('pause', function(){
         console.log('pause')
         })
-####3. ended
+#### 3. ended
 当音乐结束时触发
 
         audioObject.addEventListener('ended', function(){
         console.log('ended')
         })
-####3. timeupdate
+#### 3. timeupdate
 当currentTime更新时会触发timeupdate事件,这个事件的触发频率由系统决定，但是会保证每秒触发4-66次（前提是每次事件处理不会超过250ms.
 
 
@@ -86,7 +86,7 @@ var audioObject = new Audio('http://cloud.hunger-valley.com/music/玫瑰.mp3')
             }, 1000)
         }
         }
-####4. volumechange
+#### 4. volumechange
 当音量改变时触发
 
         audioObject.onvolumechange = function(){
